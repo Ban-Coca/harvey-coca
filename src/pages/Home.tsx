@@ -1,57 +1,147 @@
 import Footer from '@/components/Footer';
 import { SquareTerminal, Code, TabletSmartphone, GraduationCap, BriefcaseBusiness } from 'lucide-react';
 import meImage from '@/assets/me.jpg';
+import { motion } from 'motion/react';
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.2,
+        },
+    },
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6 },
+    },
+};
+
+const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5 },
+    },
+    hover: {
+        scale: 1.02,
+        borderColor: '#9333ea',
+        transition: { duration: 0.2 },
+    },
+};
 
 export const Home = () => {
     return (
         <>
-            <section className="px-6 py-24 md:py-20">
+            <motion.section 
+                className="px-6 py-24 md:py-20"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+            >
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 md:gap-16 items-center">
                     {/* Left Content */}
-                    <div className="flex flex-col gap-2 flex-1">
-                        <div>
-                            <span className="text-sm font-medium tracking-widest text-secondary uppercase">
+                    <motion.div 
+                        className="flex flex-col gap-2 flex-1"
+                        variants={itemVariants}
+                        initial="hidden"
+                        animate="visible"
+                    >
+                        <motion.div variants={itemVariants}>
+                            <motion.span 
+                                className="text-sm font-medium tracking-widest text-secondary uppercase"
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ delay: 0.2, duration: 0.5 }}
+                            >
                                 FULL-STACK DEVELOPER
-                            </span>
-                            <h1 className="text-5xl md:text-6xl font-bold leading-tight text-white">
+                            </motion.span>
+                            <motion.h1 
+                                className="text-5xl md:text-6xl font-bold leading-tight text-white"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3, duration: 0.6 }}
+                            >
                                 Van Harvey R. Coca
-                            </h1>
-                        </div>
+                            </motion.h1>
+                        </motion.div>
                         
-                        <p className="text-lg text-muted-foreground leading-relaxed">
+                        <motion.p 
+                            className="text-lg text-muted-foreground leading-relaxed"
+                            variants={itemVariants}
+                        >
                             Full-stack developer with hands-on experience in backend development, mobile development, and developer tooling research. Seeking to contribute impactful enterprise solutions.
-                        </p>
-                        <div className='border-l-4 border-primary gap-2'>
+                        </motion.p>
+                        <motion.div 
+                            className='border-l-4 border-primary gap-2'
+                            variants={itemVariants}
+                        >
                             <p className="text-base text-muted-foreground leading-relaxed pl-6">
                                 Passionate about building robust web and mobile applications with a focus on scalable backend architectures and intuitive user interfaces.
                             </p>
                             <span className="font-mono text-secondary text-sm pl-6">
                                 $ current_stack --backend="Java" --frontend="React"
                             </span>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
 
                     {/* Right Image */}
-                    <div className="flex-1 w-full md:w-auto flex justify-center md:justify-end">
-                        <img 
+                    <motion.div 
+                        className="flex-1 w-full md:w-auto flex justify-center md:justify-end"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.4, duration: 0.6 }}
+                    >
+                        <motion.img 
                             src={meImage} 
                             alt="Portfolio" 
-                            className="rounded-lg h-80 md:h-96 w-80 md:w-96 object-cover border-2 border-primary"
+                            className="rounded-lg h-80 md:h-96 w-80 md:w-96 object-cover border-2 border-primary cursor-pointer"
+                            whileHover={{ scale: 1.03 }}
+                            transition={{ duration: 0.2 }}
                         />
-                    </div>
+                    </motion.div>
                 </div>
-            </section>
+            </motion.section>
 
-            <section className="px-6 py-24 md:py-20">
+            <motion.section 
+                className="px-6 py-24 md:py-20"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+            >
                 <div className="max-w-6xl mx-auto">
-                    <div className="border-b mb-8">
+                    <motion.div 
+                        className="border-b mb-8"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                    >
                         <h2 className="text-4xl md:text-5xl font-bold text-white">
                             Technical Core
                         </h2>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 font-mono">
+                    </motion.div>
+                    <motion.div 
+                        className="grid grid-cols-1 md:grid-cols-3 gap-8 font-mono"
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
                         {/* Core Tech */}
-                        <div className='p-8 bg-card border'>
+                        <motion.div 
+                            className='p-8 bg-card border'
+                            variants={cardVariants}
+                            whileHover="hover"
+                        >
                             <div className="flex items-center gap-3 mb-6">
                                 <SquareTerminal className="w-6 h-6 text-primary" />
                                 <span className="text-base font-mono tracking-widest text-primary uppercase">
@@ -75,10 +165,14 @@ export const Home = () => {
                                     <span className="text-muted-foreground">Cloud (Azure/AWS)</span>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* Mobile */}
-                        <div className='p-8 bg-card border'>
+                        <motion.div 
+                            className='p-8 bg-card border'
+                            variants={cardVariants}
+                            whileHover="hover"
+                        >
                             <div className="flex items-center gap-3 mb-6">
                                 <TabletSmartphone className="w-6 h-6 text-primary" />
                                 <span className="text-base font-mono tracking-widest text-primary uppercase">
@@ -96,10 +190,14 @@ export const Home = () => {
                                     <span className="text-secondary">REST APIs</span>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* Tools */}
-                        <div className='p-8 bg-card border'>
+                        <motion.div 
+                            className='p-8 bg-card border'
+                            variants={cardVariants}
+                            whileHover="hover"
+                        >
                             <div className="flex items-center gap-3 mb-6">
                                 <Code className="w-6 h-6 text-primary" />
                                 <span className="text-base font-mono tracking-widest text-primary uppercase">
@@ -120,23 +218,45 @@ export const Home = () => {
                                     <p className="text-muted-foreground">CI/CD</p>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
-            </section>
+            </motion.section>
 
-            <section className="px-6 py-24 md:py-20">
+            <motion.section 
+                className="px-6 py-24 md:py-20"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+            >
                 <div className='max-w-6xl mx-auto'>
-                    <div className="border-b mb-8 flex justify-between">
+                    <motion.div 
+                        className="border-b mb-8 flex justify-between"
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                    >
                         <h2 className="text-4xl md:text-5xl font-bold text-white">
                             Recent Activities
                         </h2>
                         <span className='font-mono m-0'>
                             view_all.sh
                         </span>
-                    </div>
-                    <div className='flex flex-col gap-4'>
-                        <div className='projects flex secondary-card border p-8'>
+                    </motion.div>
+                    <motion.div 
+                        className='flex flex-col gap-4'
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
+                        <motion.div 
+                            className='projects flex secondary-card border p-8'
+                            variants={cardVariants}
+                            whileHover="hover"
+                        >
                             <div className='w-16 justify-items-center'>
                                 <GraduationCap className='w-8 h-8 text-secondary'/>
                             </div>
@@ -168,9 +288,13 @@ export const Home = () => {
                                     </span>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
 
-                        <div className='experience flex secondary-card border p-8'>
+                        <motion.div 
+                            className='experience flex secondary-card border p-8'
+                            variants={cardVariants}
+                            whileHover="hover"
+                        >
                             <div className='w-16 justify-items-center'>
                                 <BriefcaseBusiness className='w-8 h-8 text-secondary'/>
                             </div>
@@ -201,15 +325,21 @@ export const Home = () => {
                                     </span>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                     
                 </div>
-            </section>
+            </motion.section>
 
-            <section className="mt-42 px-6">
+            <motion.section 
+                className="mt-42 px-6"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+            >
                 <Footer/>
-            </section>
+            </motion.section>
         </>
     )
 }
