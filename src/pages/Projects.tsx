@@ -4,16 +4,6 @@ import { motion } from 'motion/react';
 import Footer from '@/components/Footer';
 
 export const Projects = () => {
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.1,
-            },
-        },
-    };
 
     const itemVariants = {
         hidden: { opacity: 0, y: 20 },
