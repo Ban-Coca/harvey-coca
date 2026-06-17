@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router'
 import { Layout } from './layout'
-import { Home } from './pages/Home'
-import { Projects } from './pages/Projects'
+import { Home, Projects, Stack } from '@/pages'
 
 function App() {
 
@@ -11,6 +10,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/projects" element={<Projects/>}/>
+          <Route path='/stacks' element={<Stack/>}/>
         </Routes>
       </Layout>
     </BrowserRouter>
