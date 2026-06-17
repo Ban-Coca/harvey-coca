@@ -35,7 +35,7 @@ export const Projects = () => {
                     <h1 className="text-3xl sm:text-5xl md:text-6xl text-white">
                         Projects
                     </h1>
-                    <span className="text-xs sm:text-sm text-muted-foreground max-w-2xl">
+                    <span className="text-sm sm:text-base text-muted-foreground max-w-2xl">
                         A technical documentation of backend architectures, distributed systems, and performance-critical services built for high-scale environments.
                     </span>
                 </motion.div>
@@ -48,7 +48,7 @@ export const Projects = () => {
                     whileHover={{ x: 8 }}
                     transition={{ duration: 0.3 }}
                 >
-                    <div className="flex-shrink-0">
+                    <div className="shrink-0">
                         <LayoutGrid className='h-6 w-6 sm:h-8 sm:w-8 text-secondary'/>
                     </div>
 
@@ -103,7 +103,7 @@ export const Projects = () => {
                     whileHover={{ x: 8 }}
                     transition={{ duration: 0.3 }}
                 >
-                    <div className="flex-shrink-0">
+                    <div className="shrink-0">
                         <ShieldCog className='h-6 w-6 sm:h-8 sm:w-8 text-secondary'/>
                     </div>
 
@@ -117,7 +117,7 @@ export const Projects = () => {
                         
                         <div className='grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4'>
                             <div className='bg-card border p-3 sm:p-4 font-mono text-xs sm:text-sm text-muted-foreground flex gap-2 items-start sm:items-center'>
-                                <span className='flex-shrink-0 mt-1 sm:mt-0'>
+                                <span className='shrink-0 mt-1 sm:mt-0'>
                                     <ShieldCheck size={20}/>
                                 </span>
                                 <span className='flex flex-col'>
@@ -130,7 +130,7 @@ export const Projects = () => {
                                 </span>
                             </div>
                             <div className='bg-card border p-3 sm:p-4 font-mono text-xs sm:text-sm text-muted-foreground flex gap-2 items-start sm:items-center'>
-                                <span className='flex-shrink-0 mt-1 sm:mt-0'>
+                                <span className='shrink-0 mt-1 sm:mt-0'>
                                     <Building2 size={20}/>
                                 </span>
                                 <span className='flex flex-col'>
@@ -167,7 +167,7 @@ export const Projects = () => {
                     whileHover={{ x: 8 }}
                     transition={{ duration: 0.3 }}
                 >
-                    <div className="flex-shrink-0">
+                    <div className="shrink-0">
                         <SquareTerminal className='h-6 w-6 sm:h-8 sm:w-8 text-secondary'/>
                     </div>
 
@@ -189,13 +189,13 @@ export const Projects = () => {
                                 </span>
                             </span>
                             <span className='flex gap-2 items-start'>
-                                <ChevronRight size={16} className="flex-shrink-0 mt-0.5"/>
+                                <ChevronRight size={16} className="shrink-0 mt-0.5"/>
                                 <p>
                                     Led a cross-functional team in developing a full-stack solution using Spring Boot and ReactJS.
                                 </p>
                             </span>
                             <span className='flex gap-2 items-start'>
-                                <ChevronRight size={16} className="flex-shrink-0 mt-0.5"/>
+                                <ChevronRight size={16} className="shrink-0 mt-0.5"/>
                                 <p>
                                     Architected microservices-ready backend with automated CI/CD pipelines via GitHub Actions to Azure.
                                 </p>

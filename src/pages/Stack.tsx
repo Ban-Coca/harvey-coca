@@ -4,9 +4,19 @@ import Footer from '@/components/Footer';
 import { motion } from 'motion/react';
 
 export const Stack = () => {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { staggerChildren: 0.06 } },
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+    };
+
     return (
         <>
-            <div className="px-4 sm:px-6 py-12 sm:py-24 md:py-20 max-w-6xl mx-auto flex flex-col">
+            <motion.div variants={containerVariants} initial="hidden" animate="visible" className="px-4 sm:px-6 py-12 sm:py-24 md:py-20 max-w-6xl mx-auto flex flex-col">
                 <div className="">
                     <span className="text-xs tracking-widest font-mono text-secondary">
                         0x02 // CAPABILITIES
@@ -23,7 +33,7 @@ export const Stack = () => {
                             A focused collection of technologies engineered for performance, reliability, and scale. My stack is built around modern compiled languages and cloud-native infrastructure.
                         </p>
 
-                        <div className="border border-blue-500 p-4 sm:p-6 rounded flex-shrink-0 w-full md:w-auto">
+                        <div className="border border-blue-500 p-4 sm:p-6 rounded shrink-0 w-full md:w-auto">
                             <div className="text-xs tracking-widest mb-3 font-mono">
                                 <span className="text-secondary">■</span> SYSTEM STATUS
                             </div>
@@ -37,12 +47,12 @@ export const Stack = () => {
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-16 auto-rows-max lg:auto-rows-auto lg:grid-rows-7">
                     {/* Languages Card */}
-                    <div className="lg:col-span-2 lg:row-span-4 bg-card border p-4 sm:p-6 text-base">
+                    <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }} className="lg:col-span-2 lg:row-span-4 bg-card border p-4 sm:p-6 text-base">
                         <div className="flex justify-between items-center mb-6">
                             <span className="text-lg sm:text-xl font-bold">
                                 Languages
                             </span>
-                            <span className="text-primary flex-shrink-0">
+                            <span className="text-primary shrink-0">
                                 <SquareTerminal size={20}/>
                             </span>
                         </div>
@@ -99,13 +109,13 @@ export const Stack = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Frameworks & Cloud */}
-                    <div className="lg:col-span-3 lg:row-span-4 lg:col-start-3 bg-card border p-4 sm:p-6 text-base">
+                    <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }} className="lg:col-span-3 lg:row-span-4 lg:col-start-3 bg-card border p-4 sm:p-6 text-base">
                         <div className="flex justify-between items-center mb-6">
                             <span className="text-lg sm:text-xl font-bold">Frameworks & Cloud</span>
-                            <span className="text-primary flex-shrink-0"><CloudCheck size={20}/></span>
+                            <span className="text-primary shrink-0"><CloudCheck size={20}/></span>
                         </div>
 
                         <div className="flex flex-col sm:flex-row font-mono gap-4">
@@ -134,78 +144,78 @@ export const Stack = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Data Persistence */}
-                    <div className="lg:col-span-3 lg:row-span-3 lg:row-start-5 bg-card border p-4 sm:p-6 text-base">
+                    <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }} className="lg:col-span-3 lg:row-span-3 lg:row-start-5 bg-card border p-4 sm:p-6 text-base">
                         <div className="mb-6">
                             <div className="flex justify-between items-center mb-2">
                                 <p className="text-lg sm:text-xl font-bold">Data Persistence</p>
-                                <span className="text-primary flex-shrink-0"><Database size={20}/></span>
+                                <span className="text-primary shrink-0"><Database size={20}/></span>
                             </div>
                             <p className="text-sm sm:text-base">Relational & NoSQL strategies for high availability.</p>
                         </div>
 
                         <div className="flex flex-col gap-4">
                             <div className="flex items-center gap-3 font-mono text-xs sm:text-sm">
-                                <p className="text-primary flex-shrink-0">PRIMARY</p>
+                                <p className="text-primary shrink-0">PRIMARY</p>
 
-                                <div className="flex-grow border-t border-dashed border-secondary"></div>
+                                <div className="grow border-t border-dashed border-secondary"></div>
 
-                                <div className="flex gap-1 items-center flex-shrink-0">
+                                <div className="flex gap-1 items-center shrink-0">
                                     <p>PostgreSQL</p>
                                     <span className="bg-secondary text-accent px-1 text-xs">LATEST</span>
                                 </div>
                             </div>
 
                             <div className="flex items-center gap-3 font-mono text-xs sm:text-sm">
-                                <p className="text-primary flex-shrink-0">SECONDARY</p>
+                                <p className="text-primary shrink-0">SECONDARY</p>
 
-                                <div className="flex-grow border-t border-dashed border-secondary"></div>
+                                <div className="grow border-t border-dashed border-secondary"></div>
 
-                                <div className="flex gap-1 items-center flex-shrink-0">
+                                <div className="flex gap-1 items-center shrink-0">
                                     <p>MySQL</p>
                                 </div>
                             </div>
 
                             <div className="flex items-center gap-3 font-mono text-xs sm:text-sm">
-                                <p className="text-primary flex-shrink-0">NoSQL</p>
+                                <p className="text-primary shrink-0">NoSQL</p>
 
-                                <div className="flex-grow border-t border-dashed border-secondary"></div>
+                                <div className="grow border-t border-dashed border-secondary"></div>
 
-                                <div className="flex gap-1 items-center flex-shrink-0">
+                                <div className="flex gap-1 items-center shrink-0">
                                     <p>Mongo/Firebase</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Dev Workflow */}
-                    <div className="lg:col-span-2 lg:row-span-3 lg:col-start-4 lg:row-start-5 bg-card border p-4 sm:p-6 text-base">
+                    <motion.div variants={itemVariants} whileHover={{ scale: 1.02 }} className="lg:col-span-2 lg:row-span-3 lg:col-start-4 lg:row-start-5 bg-card border p-4 sm:p-6 text-base">
                         <div className="flex justify-between items-center mb-4">
                             <p className="text-lg sm:text-xl font-bold">Dev Workflow</p>
-                            <span className="text-primary flex-shrink-0"><Wrench size={20}/></span>
+                            <span className="text-primary shrink-0"><Wrench size={20}/></span>
                         </div>
 
                         <div className="flex flex-col gap-2">
                             <div className="flex gap-3 px-3 py-3 bg-background border text-sm sm:text-base">
-                                <HardDrive size={18} className="text-secondary flex-shrink-0"/>
+                                <HardDrive size={18} className="text-secondary shrink-0"/>
                                 <p>Git / GitHub Actions CI/CD</p> 
                             </div>
                             <div className="flex gap-3 px-3 py-3 bg-background border text-sm sm:text-base">
-                                <ShieldUser size={18} className="text-secondary flex-shrink-0"/>
+                                <ShieldUser size={18} className="text-secondary shrink-0"/>
                                 <p>OAuth2 / JWT</p> 
                             </div>
                             <div className="flex gap-3 px-3 py-3 bg-background border text-sm sm:text-base">
-                                <ShieldCheck size={18} className="text-secondary flex-shrink-0"/>
+                                <ShieldCheck size={18} className="text-secondary shrink-0"/>
                                 <p>Snyk / SonarQube</p> 
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
                 
                 {/* Philosophy Section */}
-                <div className="bg-card border p-4 sm:p-6 text-base">
+                <motion.div variants={itemVariants} whileHover={{ scale: 1.01 }} className="bg-card border p-4 sm:p-6 text-base">
                     <div className="flex justify-between items-start mb-8">
                         <h2 className="text-lg sm:text-xl font-bold">Engineering Philosophy</h2>
                     </div>
@@ -213,7 +223,7 @@ export const Stack = () => {
                     <div className="flex flex-col lg:flex-row gap-4 lg:gap-4">
                         <div className="font-mono flex-1">
                             <div className="flex gap-2 text-secondary items-center mb-4">
-                                <CircleCheck className="h-4 w-4 flex-shrink-0"/>
+                                <CircleCheck className="h-4 w-4 shrink-0"/>
                                 <span className="text-xs">CODE QUALITY</span>
                             </div>
                             <p className="text-xs sm:text-sm">
@@ -223,7 +233,7 @@ export const Stack = () => {
 
                         <div className="font-mono flex-1">
                             <div className="flex gap-2 text-secondary items-center mb-4">
-                                <Building2 className="h-4 w-4 flex-shrink-0"/>
+                                <Building2 className="h-4 w-4 shrink-0"/>
                                 <span className="text-xs">TEST DRIVEN</span>
                             </div>
                             <p className="text-xs sm:text-sm">
@@ -233,7 +243,7 @@ export const Stack = () => {
 
                         <div className="font-mono flex-1">
                             <div className="flex gap-2 text-secondary items-center mb-4">
-                                <Compass className="h-4 w-4 flex-shrink-0"/>
+                                <Compass className="h-4 w-4 shrink-0"/>
                                 <span className="text-xs">SYSTEM DESIGN</span>
                             </div>
                             <p className="text-xs sm:text-sm">
@@ -241,18 +251,21 @@ export const Stack = () => {
                             </p>
                         </div>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Debug Console */}
-                <div 
+                <motion.div 
                     style={{ backgroundImage: `url(${asset})`, backgroundSize: 'cover', backgroundPosition: 'center' }} 
-                    className="w-full h-40 sm:h-48 md:h-64 mt-8 sm:mt-12 flex justify-center items-center">
+                    className="w-full h-40 sm:h-48 md:h-64 mt-8 sm:mt-12 flex justify-center items-center"
+                    variants={itemVariants}
+                    whileHover={{ scale: 1.01 }}
+                >
                     <div className="font-mono bg-card border-2 border-foreground flex flex-col justify-center items-center p-4 sm:p-8 text-center">
                         <p className="text-xs">DEBUG_CONSOLE</p>
                         <p className="text-xs sm:text-sm text-secondary">./build --all-capabilities</p>
                     </div>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
 
             <motion.section 
                 className="mt-8 sm:mt-12 px-4 sm:px-6"

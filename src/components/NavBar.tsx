@@ -10,7 +10,7 @@ export const NavBar = () => {
     return (
         <div className="border-b">
             <div className="h-16 flex items-center justify-between px-4 sm:px-6 md:px-20 gap-4 sm:gap-12">
-                <div onClick={() => navigate('/')} className="flex-shrink-0">
+                <div onClick={() => navigate('/')} className="shrink-0">
                     <span className="font-mono font-bold text-primary cursor-pointer text-sm sm:text-base">harvey_coca</span>
                 </div>
                 
@@ -31,13 +31,15 @@ export const NavBar = () => {
                 </nav>
 
                 {/* Desktop Resume Button */}
-                <Button 
-                    variant="outline" 
-                    className="hidden md:flex font-mono px-6 py-2 cursor-pointer transition-all duration-200 items-center justify-center hover:border-primary hover:shadow-[0_0_12px_rgba(var(--primary))]"
-                    onClick={() => window.open('https://docs.google.com/document/d/{YOUR_DOC_ID}/export?format=pdf', '_blank')}
-                >
-                    <span className="text-base">Resume</span>
-                </Button>
+                <div className="hidden md:block shrink-0">
+                    <Button 
+                        variant="outline" 
+                        className="font-mono px-6 py-2 cursor-pointer transition-all duration-200 flex items-center justify-center hover:border-primary hover:shadow-[0_0_12px_rgba(var(--primary))]"
+                        onClick={() => window.open('https://docs.google.com/document/d/{YOUR_DOC_ID}/export?format=pdf', '_blank')}
+                    >
+                        <span className="text-base">Resume</span>
+                    </Button>
+                </div>
 
                 {/* Mobile Menu Button */}
                 <button 
